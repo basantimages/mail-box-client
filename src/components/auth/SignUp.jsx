@@ -46,11 +46,15 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (formData.password.toLowerCase() === formData["confirm-password"].toLowerCase()) {
+    if (
+      formData.password.toLowerCase() === formData["confirm-password"].toLowerCase() &&
+      formData.email &&
+      formData.password
+    ) {
       dispatch(authenticateUser(formData));
       setFormData(initialData);
     } else {
-      alert("Password didn't matched!");
+      alert("Please Enter Correct Details!");
     }
   };
 

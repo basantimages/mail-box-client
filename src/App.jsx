@@ -11,11 +11,12 @@ function App() {
       <Typography variant="h4" color="initial">
         Learn React
       </Typography>
+      <SignUp />
       <PopUpAlert />
-      <Routes>
+      {/* <Routes>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-      </Routes>
+      </Routes> */}
     </>
   );
 }
