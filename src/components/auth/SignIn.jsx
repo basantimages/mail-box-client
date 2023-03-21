@@ -13,6 +13,8 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import authenticateUser from "../store/auth-thunks";
 
 function Copyright(props) {
   return (
@@ -36,10 +38,11 @@ export default function SignIn() {
   };
 
   const [formData, setFormData] = useState(initialData);
+  const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(formData);
+    dispatch(authenticateUser(formData));
     setFormData(initialData);
   };
 
@@ -68,7 +71,7 @@ export default function SignIn() {
           <Typography component="h1" variant="h5">
             Sign in
           </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+          <Box component="form" onSubmit={handleSubmit} sx={{ mt: 1 }}>
             <TextField
               margin="normal"
               required
