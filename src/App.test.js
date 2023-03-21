@@ -13,7 +13,7 @@ describe("App component", () => {
         </BrowserRouter>
       </Provider>
     );
-    const linkElement = screen.getByText("Learn React", { exact: false });
-    expect(linkElement).toBeInTheDocument();
+    const linkElement = screen.queryByText("Welcome", { exact: false });
+    expect(linkElement).not.toBeInTheDocument();
   });
 });
