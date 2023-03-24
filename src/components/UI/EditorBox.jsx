@@ -4,21 +4,6 @@ import "/node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
 import "./EditorBox.css";
 
-export const EditorInitialValue = {
-  blocks: [
-    {
-      key: "",
-      text: "",
-      type: "unstyled",
-      depth: 0,
-      inlineStyleRanges: [],
-      entityRanges: [],
-      data: {},
-    },
-  ],
-  entityMap: {},
-};
-
 const EditorBox = (props) => {
   let toolBarClassname = "toolbar";
 
@@ -59,3 +44,17 @@ export default EditorBox;
 // console.log(JSON.stringify(convertToRaw(textFormat.getCurrentContent())));
 
 //Default Object to display from rar
+// export const EditorInitialValue = {
+//   blocks: [
+//     {
+//       key: "",
+//       text: "",
+//       type: "unstyled",
+//       depth: 0,
+//       inlineStyleRanges: [],
+//       entityRanges: [],
+//       data: {},
+//     },
+//   ],
+//   entityMap: {},
+// };

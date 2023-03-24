@@ -13,6 +13,7 @@ import MailBoxModal from "./components/modals/MailBoxModal";
 import { useEffect } from "react";
 import { loginOnLoad } from "./components/store/auth-thunks";
 import { getData, putData } from "./components/store/mail-box-thunks";
+import { mailBoxActions } from "./components/store/mail-box-slice";
 
 let firstRender = true;
 
@@ -44,6 +45,7 @@ function App() {
       firstRender = false;
       console.log("auto signin");
       dispatch(loginOnLoad());
+      dispatch(mailBoxActions.getTotalUnread());
     }
   }, [dispatch]);
 

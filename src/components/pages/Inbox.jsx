@@ -4,6 +4,7 @@ import BoxUI from "../UI/BoxUI";
 import Heading from "../UI/Heading";
 import NoItem from "../UI/NoItem";
 import MailCard from "../UI/MailCard";
+import { Badge, Box } from "@mui/material";
 
 const Inbox = () => {
   const inbox = useSelector((state) => state.mailBox.inbox);
@@ -19,14 +20,22 @@ const Inbox = () => {
       {inboxArr.length !== 0 &&
         inboxArr.map((inbox) => {
           return (
-            <MailCard
-              key={inbox.id}
-              id={inbox.id}
-              toOrFrom="From"
-              mail={inbox.from}
-              subject={inbox.subject}
-              mailBody={inbox.mailBody}
-            />
+            <div key={inbox.id}>
+              {!inbox.read && (
+                <Box
+                  sx={{ position: "relative", top: "1rem", left: "0.5rem", zIndex: "10" }}
+                >
+                  <Badge badgeContent={""} color="primary" />
+                </Box>
+              )}
+              <MailCard
+                id={inbox.id}
+                toOrFrom="From"
+                mail={inbox.from}
+                subject={inbox.subject}
+                mailBody={inbox.mailBody}
+              />
+            </div>
           );
         })}
     </BoxUI>

@@ -45,6 +45,8 @@ const MailCard = (props) => {
   function modalHandler() {
     let mailData = getMailObject();
     dispatch(popUpActions.mailBoxModalHandler(mailData));
+    dispatch(mailBoxActions.changeReadToFalse(props.id));
+    dispatch(mailBoxActions.getTotalUnread());
   }
 
   return (

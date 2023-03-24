@@ -15,8 +15,9 @@ import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { NavLink } from "react-router-dom";
 import "./SideBar.css";
 import Button from "@mui/material/Button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { authActions } from "../store/auth-slice";
+import { Badge } from "@mui/material";
 
 const navItems = [
   {
@@ -43,6 +44,7 @@ const navItems = [
 
 const SideBar = () => {
   const dispatch = useDispatch();
+  const totalUnread = useSelector((state) => state.mailBox.totalUnread);
 
   function logoutHandler() {
     dispatch(authActions.logout());
@@ -80,6 +82,10 @@ const SideBar = () => {
             <ListItemText primary="" />
           </ListItem>
           <Divider />
+
+          <Box sx={{ position: "fixed", left: "1rem", zIndex: "10" }}>
+            <Badge badgeContent={totalUnread} color="primary" />
+          </Box>
 
           {navItems.map((item) => {
             return (
