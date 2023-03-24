@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { Snackbar, Alert } from "@mui/material";
-import { modalActions } from "../store/modal-slice";
+import { popUpActions } from "../store/pop-up-slice";
 
 const PopUpAlert = () => {
   const showPopUpAlert = useSelector((state) => state.modals.showPopUpAlert);
@@ -12,7 +12,7 @@ const PopUpAlert = () => {
       message: "",
       severity: "success",
     };
-    dispatch(modalActions.popUpAlertHandler(obj));
+    dispatch(popUpActions.popUpAlertHandler(obj));
   }
 
   return (

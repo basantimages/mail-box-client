@@ -1,6 +1,6 @@
 import axios from "axios";
 import { authActions } from "./auth-slice";
-import { modalActions } from "./modal-slice";
+import { popUpActions } from "./pop-up-slice";
 
 const authenticateUser = (user) => {
   return async (dispatch) => {
@@ -23,7 +23,7 @@ const authenticateUser = (user) => {
     try {
       const res = await axios.post(url, requestBody);
       dispatch(
-        modalActions.popUpAlertHandler({
+        popUpActions.popUpAlertHandler({
           message: "Authentication Successful",
           severity: "success",
         })
@@ -37,7 +37,7 @@ const authenticateUser = (user) => {
       // get all data here
     } catch (error) {
       dispatch(
-        modalActions.popUpAlertHandler({
+        popUpActions.popUpAlertHandler({
           message: "Authentication Failed!",
           severity: "error",
         })
